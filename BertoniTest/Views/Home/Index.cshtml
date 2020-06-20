@@ -1,0 +1,35 @@
+﻿@model AlbumModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="form-inline">
+        @Html.DropDownListFor(x => x.Album, Model.Albums, "Seleccionar", new { @class = "form-control" })
+       <button class="btn btn-success" id="btn-show-album">Visualizar albúm</button>
+    </div>
+   <table class="table table-bordered">
+       <thead>
+           <tr>
+               <th>Fotos</th>
+           </tr>
+           
+       </thead>
+       <tbody id="tbody-albums-photos">
+
+       </tbody>
+   </table>
+</div>
+<script src="~/js/AlbumRepository.js"></script>
+<script src="~/js/AlbumCtrl.js"></script>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        window.app = window.app || {};
+        var repo = new app.AlbumRepository();
+        var contrl = new app.AlbumCtrl(repo);
+        contrl.Init();
+    });
+</script>

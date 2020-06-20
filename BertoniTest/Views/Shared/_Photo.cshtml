@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Photo>
+@foreach(var item in Model){
+    <tr>
+        <td>
+            <figure class="figure">
+                <img src="@item.thumbnailUrl" />
+                <figcaption class="figure-caption text-right">@item.title</figcaption>
+                <p>@item.url</p>
+            </figure>
+            
+            
+        </td>
+    </tr>
+}
